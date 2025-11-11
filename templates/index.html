@@ -1,0 +1,31 @@
+
+{% block head %} <title>Home</title> {% endblock %}
+
+{% block body %} 
+
+  <div class="content">
+
+    <h1>TODO - Flask</h1>
+
+    {% if tasks|length < 1 %}
+      <h3>There are no tasks</h3>
+    {% else %}
+    <table>
+      <tr>
+        <td>Task</td>
+        <td>Completed</td>
+        <td>Added</td>
+        <td>Actions</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    {% endif %}
+
+  </div>
+
+{% endblock %}
