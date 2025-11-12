@@ -17,14 +17,24 @@
         <td>Added</td>
         <td>Actions</td>
       </tr>
+      {% for task in tasks %}
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ task.content }}</td>
+        <td>{{ task.completed }}</td>
+        <td>{{ task.created_at }}</td>
+        <td>
+          <a href="#">Update</a>
+          <a href="#">Delete</a>
+        </td>
       </tr>
+      {% endfor %}
     </table>
     {% endif %}
+
+    <form action="/" method="post">
+      <input type="text" name="content" id="content">
+      <input type="submit" value="Add Task">
+    </form>
 
   </div>
 
