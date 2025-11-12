@@ -26,5 +26,34 @@ def index():
 
 # TODO - ADICIONAR OUTRAS ROTAS/MÉTODOS/FUNCIONALIDADES
 
+@app.route("/update/<int:id>", methods=['GET', 'POST'])
+def update(id):
+  task = Task.query.get_or_404(id)
+
+  if request.method == 'POST':
+    task.content = request.form['content']
+
+    try:
+      db.session.commit()
+      return redirect("/")
+    except:
+      print('Something went wrong when trying to update the task.')
+
+  else:
+    return render_template("update.html", task=task)
+
+
+@app.route("/delete/<int:id>")
+def delete(id):
+
+  task = Task.query.get_or_404(id)
+
+  if task:
+    try:
+      db.session.delete(task)
+      db.session.commit()
+      return redirect("/")
+    except:
+      print('Something went wrong when trying to delete the task.')
 
 app.run(debug=True)
