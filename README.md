@@ -13,7 +13,7 @@ git clone
 ## Usage
 
 ```python
-# create the database with
+# create the database on your terminal with
 from app import db
 
 # then
