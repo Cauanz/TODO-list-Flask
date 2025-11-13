@@ -24,14 +24,13 @@ def index():
     tasks = Task.query.all()
     return render_template("index.html", tasks=tasks)
 
-# TODO - ADICIONAR OUTRAS ROTAS/MÉTODOS/FUNCIONALIDADES
-
 @app.route("/update/<int:id>", methods=['GET', 'POST'])
 def update(id):
   task = Task.query.get_or_404(id)
 
   if request.method == 'POST':
     task.content = request.form['content']
+    task.completed = 'completed' in request.form
 
     try:
       db.session.commit()
@@ -56,4 +55,5 @@ def delete(id):
     except:
       print('Something went wrong when trying to delete the task.')
 
-app.run(debug=True)
+if __name__ == "__main__":
+  app.run(debug=True)

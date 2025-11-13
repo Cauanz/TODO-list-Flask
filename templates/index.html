@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 
 {% block head %} <title>Home</title> {% endblock %}
 
@@ -21,8 +22,8 @@
       <tr>
         <td>{{ task.content }}</td>
         <td>{{ task.completed }}</td>
-        <td>{{ task.created_at }}</td>
-        <td>
+        <td>{{ task.created_at.date() }}</td>
+        <td class="actions">
           <a href="/update/{{ task.id }}">Update</a>
           <a href="/delete/{{ task.id }}">Delete</a>
         </td>
@@ -31,7 +32,7 @@
     </table>
     {% endif %}
 
-    <form action="/" method="post">
+    <form action="/" method="post" class="form">
       <input type="text" name="content" id="content">
       <input type="submit" value="Add Task">
     </form>

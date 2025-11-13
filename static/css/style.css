@@ -1,36 +1,67 @@
-body, html {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: lightblue;
+body,
+html {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content {
-    margin: 0 auto;
-    width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 400px;
 }
 
-table, td, th {
-    border: 1px solid #aaa;
+.content h1 {
+  text-align: center;
+}
+
+table,
+td,
+th {
+  border: 1px solid #aaa;
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 th {
-    height: 30px;
+  height: 30px;
 }
 
 td {
-    text-align: center;
-    padding: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions a {
+  text-decoration: none;
+  color: chocolate;
 }
 
 .form {
-    margin-top: 20px;
+  margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	gap: 2px;
+	align-items: center;
+}
+
+.form input {
+	padding: 5px;
 }
 
 #content {
-    width: 70%;
+  width: 70%;
 }
